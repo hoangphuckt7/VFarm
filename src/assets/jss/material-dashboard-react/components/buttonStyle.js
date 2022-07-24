@@ -13,6 +13,7 @@ import {
 
 const buttonStyle = {
   button: {
+    outline: "none !important",
     minHeight: "auto",
     minWidth: "auto",
     backgroundColor: grayColor[0],

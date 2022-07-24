@@ -2,6 +2,7 @@ import {
   defaultFont,
   dangerColor,
   whiteColor,
+  infoColor,
 } from "assets/jss/material-dashboard-react.js";
 
 import dropdownStyle from "assets/jss/material-dashboard-react/dropdownStyle.js";
@@ -107,6 +108,13 @@ const headerLinksStyle = (theme) => ({
       margin: "10px 15px 0",
     },
     display: "inline-block",
+  },
+  block: {
+    color: infoColor[1],
+    fontSize: "20px",
+  },
+  icons: {
+    color: infoColor[1],
   },
 });
 

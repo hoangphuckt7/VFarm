@@ -14,6 +14,8 @@ import {
   grayColor,
   blackColor,
   hexToRgb,
+  drawerWidthSideBar,
+  transitionSidebar,
 } from "assets/jss/material-dashboard-react.js";
 
 const sidebarStyle = (theme) => ({
@@ -23,16 +25,16 @@ const sidebarStyle = (theme) => ({
     top: "0",
     bottom: "0",
     left: "0",
-    zIndex: "1",
+    zIndex: "999",
     ...boxShadow,
-    width: drawerWidth,
+    width: drawerWidthSideBar,
+    overflowX: "hidden",
+    ...transitionSidebar,
     [theme.breakpoints.up("md")]: {
-      width: drawerWidth,
       position: "fixed",
       height: "100%",
     },
     [theme.breakpoints.down("sm")]: {
-      width: drawerWidth,
       ...boxShadow,
       position: "fixed",
       display: "block",
@@ -50,6 +52,36 @@ const sidebarStyle = (theme) => ({
       transform: `translate3d(${drawerWidth}px, 0, 0)`,
       ...transition,
     },
+    "&:hover": {
+      width: drawerWidth,
+      ...transitionSidebar,
+    },
+    "&:hover $logoLink": {
+      opacity: "1",
+      display: "inline-block",
+    },
+    "&:hover $logo": {
+      padding: "30px 50px",
+      "&:after": {
+        width: "calc(100% - 30px)",
+      },
+    },
+    "&:hover $itemText": {
+      display: "block",
+    },
+    "&:hover $itemIcon": {
+      fontSize: "24px",
+      lineHeight: "30px",
+      float: "left",
+      marginRight: "15px",
+      textAlign: "center",
+    },
+    "&:hover $sidebarWrapper": {
+      width: "260px",
+    },
+    "&:hover .makeStyles-mainPanel-2": {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
   },
   drawerPaperRTL: {
     [theme.breakpoints.up("md")]: {
@@ -63,7 +95,7 @@ const sidebarStyle = (theme) => ({
   },
   logo: {
     position: "relative",
-    padding: "50px 50px",
+    padding: "50px 0",
     zIndex: "4",
     "&:after": {
       content: '""',
@@ -71,8 +103,8 @@ const sidebarStyle = (theme) => ({
       bottom: "0",
 
       height: "1px",
-      right: "15px",
-      width: "calc(100% - 30px)",
+      right: "10px",
+      left: "10px",
       backgroundColor: "rgba(" + hexToRgb(grayColor[6]) + ", 0.3)",
     },
   },
@@ -80,13 +112,14 @@ const sidebarStyle = (theme) => ({
     ...defaultFont,
     textTransform: "uppercase",
     padding: "5px 0",
-    display: "block",
+    display: "none",
     fontSize: "18px",
     textAlign: "left",
     fontWeight: "400",
     lineHeight: "30px",
     textDecoration: "none",
     backgroundColor: "transparent",
+    opacity: "0",
     "&,&:hover": {
       color: blackColor,
     },
@@ -95,18 +128,14 @@ const sidebarStyle = (theme) => ({
     textAlign: "right",
   },
   logoImage: {
-    width: "30px",
-    display: "inline-block",
-    maxHeight: "30px",
+    width: "130px",
+    height: "140px",
     marginLeft: "10px",
     marginRight: "15px",
   },
   img: {
-    width: "85px",
-    top: "22px",
-    position: "absolute",
-    verticalAlign: "middle",
-    border: "0",
+    width: "100%",
+    height: "100%",
   },
   background: {
     position: "absolute",
@@ -148,6 +177,7 @@ const sidebarStyle = (theme) => ({
   },
   itemLink: {
     width: "auto",
+    // width: "50px",
     transition: "all 300ms linear",
     margin: "10px 15px 0",
     borderRadius: "3px",
@@ -160,13 +190,8 @@ const sidebarStyle = (theme) => ({
   itemIcon: {
     width: "24px",
     height: "30px",
-    fontSize: "24px",
-    lineHeight: "30px",
-    float: "left",
-    marginRight: "15px",
-    textAlign: "center",
     verticalAlign: "middle",
-    color: "rgba(" + hexToRgb(blackColor) + ", 0.8)",
+    color: grayColor[9],
   },
   itemIconRTL: {
     marginRight: "3px",
@@ -178,7 +203,8 @@ const sidebarStyle = (theme) => ({
     margin: "0",
     lineHeight: "30px",
     fontSize: "14px",
-    color: grayColor,
+    color: blackColor,
+    display: "none",
   },
   itemTextRTL: {
     textAlign: "right",
@@ -286,7 +312,7 @@ const sidebarStyle = (theme) => ({
     position: "relative",
     height: "calc(100vh - 75px)",
     overflow: "auto",
-    width: "260px",
+    width: "80px",
     zIndex: "4",
     overflowScrolling: "touch",
   },

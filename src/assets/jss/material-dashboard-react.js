@@ -52,9 +52,19 @@ const hexToRgb = (input) => {
 // #############################
 
 const drawerWidth = 260;
+const drawerWidthSideBar = 80;
 
 const transition = {
   transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)",
+};
+
+const transitionSidebar = {
+  webkitTransitionProperty: "top, bottom, width",
+  transitionProperty: "top, bottom, width",
+  webkitTransitionDuration: "0.2s, 0.2s, 0.35s",
+  transitionDuration: "0.2s, 0.2s, 0.35s",
+  webkitTransitionTimingFunction: "linear, linear, ease",
+  transitionTimingFunction: "linear, linear, ease",
 };
 
 const container = {
@@ -299,4 +309,6 @@ export {
   cardTitle,
   cardSubtitle,
   cardLink,
+  drawerWidthSideBar,
+  transitionSidebar,
 };
