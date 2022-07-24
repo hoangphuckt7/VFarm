@@ -25,7 +25,7 @@ const sidebarStyle = (theme) => ({
     top: "0",
     bottom: "0",
     left: "0",
-    zIndex: "999",
+    zIndex: "9999",
     ...boxShadow,
     width: drawerWidthSideBar,
     overflowX: "hidden",
